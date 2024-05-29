@@ -46,7 +46,7 @@ self.addEventListener('fetch', function (event) {
     //            Otherwise fetch the resource, add it to the cache, and return
     //            network response.
     return cache.match(event.request).then((cachedResponse) => {
-      return cachedResponse || fetch(event.request, { mode: 'no-cors' }).then(function (networkResponse) {
+      return cachedResponse || fetch(event.request, { mode: 'no-cors' }).then((networkResponse) => {
         cache.put(event.request, networkResponse.clone());
         return networkResponse;
       });
